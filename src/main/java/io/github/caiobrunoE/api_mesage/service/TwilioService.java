@@ -33,10 +33,10 @@ public class TwilioService {
                 message
         ).create();
     }
-    public SMSRequest receiveSMS(String from, String message) {
+    public SMSRequest receiveSMS(SMSRequest requestSms) {
         SMSRequest request = new SMSRequest();
-        request.setTo(from);
-        request.setMessage(message);
+        request.setTo(requestSms.getTo());
+        request.setMessage(requestSms.getMessage());
         return repository.save(request);
     }
 

@@ -24,6 +24,6 @@ public class SMSController {
 
     @PostMapping("/receive-sms")
     public SMSRequest receiveSMS(@RequestBody SMSRequest request) {
-        return twilioService.receiveSMS(request.getTo(),request.getMessage());
+        return twilioService.receiveSMS(request);
     }
 }
