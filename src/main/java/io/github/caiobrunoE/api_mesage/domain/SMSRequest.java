@@ -2,12 +2,18 @@ package io.github.caiobrunoE.api_mesage.domain;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 @Getter
 @Setter
+@Document(collection = "SMSRequest")
 public class SMSRequest {
-    private String to;       // Número de telefone de destino
-    private String message;  // Mensagem de texto a ser enviada
+    @Id
+    private String id;
+
+    private String to;
+    private String message;
 
 }
 

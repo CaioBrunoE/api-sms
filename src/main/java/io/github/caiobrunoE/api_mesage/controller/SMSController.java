@@ -5,7 +5,6 @@ import io.github.caiobrunoE.api_mesage.service.TwilioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -24,7 +23,7 @@ public class SMSController {
     }
 
     @PostMapping("/receive-sms")
-    public void receiveSMS(@RequestBody SMSRequest request) {
-        twilioService.receiveSMS(request.getTo(),request.getMessage());
+    public SMSRequest receiveSMS(@RequestBody SMSRequest request) {
+        return twilioService.receiveSMS(request.getTo(),request.getMessage());
     }
 }
